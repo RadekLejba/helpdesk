@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'helpdesk.apps.HelpdeskConfig',
     'sass_processor',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
