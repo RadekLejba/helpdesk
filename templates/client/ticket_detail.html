@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Add category{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <ul class="list-group col-md-8 col-md-offset-2">
+                <h1>{{ ticket }}</h1>
+                <div class="list-group-item">
+                    Status:{{ ticket.status }}
+                </div>
+                <div class="list-group-item">
+                    {{ ticket.description }}
+                </div>
+                    <a href="{% url 'edit_ticket' ticket.pk %}">
+                        <button class="btn btn-primary" value="edit">
+                            Edit
+                        </button>
+                    </a>
+                </div>
+            </ul>
+        </div>
+    </div>
+{% endblock %}

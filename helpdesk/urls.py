@@ -16,12 +16,13 @@ Including another URLconf
 from django.urls import include, path
 from django.contrib import admin
 
-from helpdesk.views import IndexView, SignupView
+from helpdesk.views import IndexRedirectView, SignupView
 
 urlpatterns = [
-    path(r'', IndexView.as_view(), name='index'),
+    path(r'', IndexRedirectView.as_view(), name='index'),
     path(r'', include('django.contrib.auth.urls')),
     path(r'signup/', SignupView.as_view(), name='signup'),
     path(r'client/', include('client.urls')),
+    path(r'consultant/', include('consultant.urls')),
     path(r'admin/', admin.site.urls),
 ]

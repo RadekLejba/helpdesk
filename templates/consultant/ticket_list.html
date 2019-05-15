@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <ul class="list-group col-lg-4">
+        <li class="list-group-item list-group-item-action">
+            <button type="button" class="list-group-item list-group-item-action active">
+                Todo
+            </button>
+        </li>
+        {% for ticket in todo_tickets %}
+            <a href="{% url 'ticket_details' ticket.pk %}">
+                <li class="list-group-item list-group-item-action">
+                    {{ ticket }}
+                </li>
+            </a>
+        {% endfor %}
+    </ul>
+    <ul class="list-group col-lg-4">
+        <li class="list-group-item list-group-item-action">
+            <button type="button" class="list-group-item list-group-item-action active">
+                In progres
+            </button>
+        </li>
+        {% for ticket in in_progres_tickets %}
+            <a href="{% url 'ticket_details' ticket.pk %}">
+                <li class="list-group-item list-group-item-action">
+                    {{ ticket }}
+                </li>
+            </a>
+        {% endfor %}
+    </ul>
+    <ul class="list-group col-lg-4">
+        <li class="list-group-item list-group-item-action">
+            <button type="button" class="list-group-item list-group-item-action active">
+                Done
+            </button>
+        </li>
+        {% for ticket in done_tickets %}
+            <a href="{% url 'ticket_details' ticket.pk %}">
+                <li class="list-group-item list-group-item-action">
+                    {{ ticket }}
+                </li>
+            </a>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
