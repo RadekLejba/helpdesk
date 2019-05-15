@@ -2,7 +2,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
-from django.views.generic.base import TemplateView
+from django.views.generic.base import RedirectView
 
 
 class BaseView(LoginRequiredMixin):
@@ -10,8 +10,14 @@ class BaseView(LoginRequiredMixin):
     redirect_field_name = 'redirect_to'
 
 
-class IndexView(BaseView, TemplateView):
+class IndexRedirectView(BaseView, RedirectView):
     template_name = 'helpdesk/main.html'
+
+    def get_redirect_url(self, *args, **kwargs):
+        if self.request.user.profile.role == 'Client':
+            return 'client/create_ticket'
+        else:
+            return 'consultant'
 
 
 class SignupView(CreateView):
