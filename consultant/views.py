@@ -7,7 +7,7 @@ from client.models import Ticket, STATUS_CHOICES
 
 class CreateCategoryView(CreateView):
     model = Category
-    success_url = 'index'
+    success_url = 'create_category'
     fields = ['name']
     template_name = 'consultant/create_category.html'
 

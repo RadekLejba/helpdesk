@@ -3,21 +3,29 @@
 {% block title %}Add category{% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="container registration-container">
         <div class="row">
             <ul class="list-group col-md-8 col-md-offset-2">
                 <h1>{{ ticket }}</h1>
                 <div class="list-group-item">
-                    Status:{{ ticket.status }}
+                    {% if ticket.status == "Todo" %}
+                        Status: <span class="badge badge-secondaryt">{{ ticket.status }}</span>
+                    {% elif ticket.status == "In progres" %}
+                        Status: <span class="badge badge-primary">{{ ticket.status }}</span>
+                    {% elif ticket.status == "Done" %}
+                        Status: <span class="badge badge-success">{{ ticket.status }}</span>
+                    {% endif %}
                 </div>
                 <div class="list-group-item">
                     {{ ticket.description }}
                 </div>
+                {% if request.user.profile.role != "Client" %}
                     <a href="{% url 'edit_ticket' ticket.pk %}">
                         <button class="btn btn-primary" value="edit">
                             Edit
                         </button>
                     </a>
+                {% endif %}
                 </div>
             </ul>
         </div>

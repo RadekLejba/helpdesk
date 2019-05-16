@@ -1,6 +1,9 @@
 from django.urls import path
 
-from consultant.views import CreateCategoryView, TicketListView
+from consultant.views import (
+    CreateCategoryView,
+    TicketListView,
+)
 
 urlpatterns = [
     path(r'', TicketListView.as_view(), name='ticket_list'),
