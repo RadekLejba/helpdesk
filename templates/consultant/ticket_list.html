@@ -12,6 +12,7 @@
             <a href="{% url 'ticket_details' ticket.pk %}">
                 <li class="list-group-item list-group-item-action">
                     {{ ticket }}
+                    <span class="badge badge-success float-right">{{ ticket.priority }}</span>
                 </li>
             </a>
         {% endfor %}
@@ -26,6 +27,7 @@
             <a href="{% url 'ticket_details' ticket.pk %}">
                 <li class="list-group-item list-group-item-action">
                     {{ ticket }}
+                    <span class="badge badge-success float-right">{{ ticket.priority }}</span>
                 </li>
             </a>
         {% endfor %}
@@ -40,6 +42,7 @@
             <a href="{% url 'ticket_details' ticket.pk %}">
                 <li class="list-group-item list-group-item-action">
                     {{ ticket }}
+                    <span class="badge badge-success float-right">{{ ticket.priority }}</span>
                 </li>
             </a>
         {% endfor %}

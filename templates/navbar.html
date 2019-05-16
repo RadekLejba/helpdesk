@@ -1,0 +1,7 @@
+{% if user.is_authenticated %}
+    {% if request.user.profile.role  == "Client" %}
+        {% include "client/nav.html" %}
+    {% else %}
+        {% include "consultant/nav.html" %}
+    {% endif %}
+{% endif %}
