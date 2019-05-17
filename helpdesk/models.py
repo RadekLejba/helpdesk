@@ -4,9 +4,15 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 
+ROLES = (
+    ('Client', 'Client'),
+    ('Consultant', 'Consultant'),
+)
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    role = models.TextField(max_length=20, default="Client")
+    role = models.TextField(max_length=20, default="Client", choices=ROLES)
 
     def __str__(self):
         return '{} profile'.format(self.user)
