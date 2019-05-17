@@ -18,11 +18,11 @@ class CreateTicketView(BaseView, CreateView):
         return super().form_valid(form)
 
 
-class TicketDetailView(DetailView):
+class TicketDetailView(BaseView, DetailView):
     model = Ticket
 
 
-class EditTicketView(UpdateView):
+class EditTicketView(BaseView, UpdateView):
     model = Ticket
     template_name = 'client/edit_ticket.html'
     success_url = reverse_lazy('index')
@@ -34,7 +34,7 @@ class EditTicketView(UpdateView):
         return context
 
 
-class UserTicketsList(ListView):
+class UserTicketsList(BaseView, ListView):
     model = Ticket
     template_name = 'client/ticket_list.html'
 

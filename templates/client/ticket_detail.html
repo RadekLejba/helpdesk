@@ -9,7 +9,7 @@
                 <h1>{{ ticket }}</h1>
                 <div class="list-group-item">
                     {% if ticket.status == "Todo" %}
-                        Status: <span class="badge badge-secondaryt">{{ ticket.status }}</span>
+                        Status: <span class="badge badge-secondary">{{ ticket.status }}</span>
                     {% elif ticket.status == "In progres" %}
                         Status: <span class="badge badge-primary">{{ ticket.status }}</span>
                     {% elif ticket.status == "Done" %}

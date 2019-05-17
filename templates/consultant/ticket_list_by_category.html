@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <ul class="list-group col-lg-4 registration-container">
+        {% for category, tickets in categories.items %}
+            <li class="list-group-item list-group-item-action">
+                <button type="button" class="list-group-item list-group-item-action active">
+                    {{ category }}
+                </button>
+            </li>
+            {% for ticket in tickets %}
+                <a href="{% url 'ticket_details' ticket.pk %}">
+                    <li class="list-group-item list-group-item-action">
+                        {{ ticket }}
+                        {% if ticket.status == "Todo" %}
+                            <span class="badge badge-secondary float-right">{{ ticket.status }}</span>
+                        {% elif ticket.status == "In progres" %}
+                            <span class="badge badge-primary float-right">{{ ticket.status }}</span>
+                        {% elif ticket.status == "Done" %}
+                            <span class="badge badge-success float-right">{{ ticket.status }}</span>
+                        {% endif %}
+                    </li>
+                </a>
+            {% endfor %}
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}

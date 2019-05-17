@@ -6,7 +6,7 @@ from django.views.generic.base import RedirectView
 
 
 class BaseView(LoginRequiredMixin):
-    login_url = '/login/'
+    login_url = reverse_lazy('login')
     redirect_field_name = 'redirect_to'
 
 
